@@ -1,11 +1,11 @@
 
 package org.medellinjug.bvalidation2;
 
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 /**
  *
@@ -13,17 +13,17 @@ import javax.inject.Named;
  * MedellinJUG.org
  */
 
-
+//@Named
 @ManagedBean
 @SessionScoped
 public class BasicFormBean {
     
-    private User user;
+    private NewAnnotations newAnnotations;
     
     
     public String goUserAction(){
         
-        this.user=new User();
+        this.newAnnotations =new NewAnnotations();
         
         return "basicForm";
     }
@@ -32,7 +32,7 @@ public class BasicFormBean {
         
          try{
        
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Submit OK: " + this.user , "Submit OK " + this.user));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Submit OK: " + this.newAnnotations, "Submit OK " + this.newAnnotations));
             
         }catch(Exception e){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage()));
@@ -44,12 +44,12 @@ public class BasicFormBean {
     
     
 
-    public User getUser() {
-        return user;
+    public NewAnnotations getNewAnnotations() {
+        return newAnnotations;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setNewAnnotations(NewAnnotations newAnnotations) {
+        this.newAnnotations = newAnnotations;
     }
     
     
